@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shop — Maitree Jain</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a class="back-link" href="/">← Back to Portfolio</a>
+
+<header class="page-head">
+  <div class="brand">✦ Full-Stack Mini App</div>
+  <h1>Product Listing</h1>
+  <p class="subtitle">Browse, filter, and sort products — all data served live from an Express API.</p>
+</header>
+
+<main class="block">
+
+  <div class="controls">
+    <div class="control-group">
+      <label for="categorySelect">Category</label>
+      <select id="categorySelect">
+        <option value="All">All</option>
+      </select>
+    </div>
+
+    <div class="control-group">
+      <label>Price range</label>
+      <div class="price-inputs">
+        <input type="number" id="minPrice" placeholder="Min ₹" min="0">
+        <span>–</span>
+        <input type="number" id="maxPrice" placeholder="Max ₹" min="0">
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label for="sortSelect">Sort by</label>
+      <select id="sortSelect">
+        <option value="">Featured</option>
+        <option value="price-asc">Price: Low to High</option>
+        <option value="price-desc">Price: High to Low</option>
+        <option value="rating-desc">Rating: High to Low</option>
+        <option value="name-asc">Name: A–Z</option>
+      </select>
+    </div>
+
+    <button id="resetBtn" class="btn-secondary small">Reset filters</button>
+  </div>
+
+  <div class="result-bar">
+    <span id="resultCount">Loading products…</span>
+  </div>
+
+  <div id="productGrid" class="product-grid"></div>
+
+</main>
+
+<footer>
+  Made with 💖 · Maitree Jain · Node.js + Express backend, JSON file storage
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

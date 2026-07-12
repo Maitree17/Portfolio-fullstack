@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Notes & Tasks — Maitree Jain</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a class="back-link" href="/">← Back to Portfolio</a>
+
+<header class="page-head">
+  <div class="brand">✦ Full-Stack Mini App</div>
+  <h1>Notes & Tasks</h1>
+  <p class="subtitle">A to-do list backed by a real Express server — every change is saved to disk, not just your browser.</p>
+</header>
+
+<main class="block">
+
+  <form id="taskForm" class="task-form">
+    <input type="text" id="taskInput" placeholder="What do you need to do?" required maxlength="140">
+    <select id="priorityInput">
+      <option value="low">Low</option>
+      <option value="medium" selected>Medium</option>
+      <option value="high">High</option>
+    </select>
+    <input type="date" id="dueInput">
+    <button type="submit" class="btn-primary">Add Task</button>
+  </form>
+
+  <div class="task-toolbar">
+    <div class="filters" id="filters">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="active">Active</button>
+      <button class="filter-btn" data-filter="completed">Completed</button>
+    </div>
+    <div class="task-meta">
+      <span id="taskCount">0 tasks</span>
+      <button id="clearCompleted" class="btn-secondary small">Clear completed</button>
+    </div>
+  </div>
+
+  <div id="taskList" class="task-list">
+    <p class="hint" id="loadingHint">Loading your tasks…</p>
+  </div>
+
+</main>
+
+<footer>
+  Made with 💖 · Maitree Jain · Node.js + Express backend, JSON file persistence
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

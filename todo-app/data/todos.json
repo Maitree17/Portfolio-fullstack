@@ -1,0 +1,26 @@
+[
+  {
+    "id": "t1",
+    "text": "Finish React dashboard component",
+    "priority": "high",
+    "dueDate": "2026-07-15",
+    "completed": false,
+    "createdAt": "2026-07-10T09:00:00.000Z"
+  },
+  {
+    "id": "t2",
+    "text": "Reply to internship interview email",
+    "priority": "high",
+    "dueDate": "2026-07-13",
+    "completed": false,
+    "createdAt": "2026-07-10T09:05:00.000Z"
+  },
+  {
+    "id": "t3",
+    "text": "Read one chapter of System Design",
+    "priority": "low",
+    "dueDate": "",
+    "completed": true,
+    "createdAt": "2026-07-09T18:00:00.000Z"
+  }
+]

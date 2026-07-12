@@ -1,0 +1,20 @@
+[
+  { "id": "p1",  "name": "Wireless Noise-Cancel Headphones", "category": "Electronics", "price": 4499, "rating": 4.6, "icon": "🎧" },
+  { "id": "p2",  "name": "Mechanical Keyboard (Hot-Swap)",     "category": "Electronics", "price": 3299, "rating": 4.4, "icon": "⌨️" },
+  { "id": "p3",  "name": "27-inch 2K Monitor",                  "category": "Electronics", "price": 12999, "rating": 4.7, "icon": "🖥️" },
+  { "id": "p4",  "name": "Smartwatch Fitness Tracker",          "category": "Electronics", "price": 2799, "rating": 4.1, "icon": "⌚" },
+  { "id": "p5",  "name": "Oversized Denim Jacket",               "category": "Fashion",     "price": 1899, "rating": 4.3, "icon": "🧥" },
+  { "id": "p6",  "name": "Canvas Sneakers",                      "category": "Fashion",     "price": 1299, "rating": 4.0, "icon": "👟" },
+  { "id": "p7",  "name": "Minimalist Leather Wallet",            "category": "Fashion",     "price": 899,  "rating": 4.5, "icon": "👛" },
+  { "id": "p8",  "name": "Cotton Graphic Tee",                   "category": "Fashion",     "price": 499,  "rating": 3.9, "icon": "👕" },
+  { "id": "p9",  "name": "Ceramic Table Lamp",                   "category": "Home",        "price": 1599, "rating": 4.2, "icon": "🛋️" },
+  { "id": "p10", "name": "Aroma Diffuser + Oils Set",            "category": "Home",        "price": 999,  "rating": 4.4, "icon": "🕯️" },
+  { "id": "p11", "name": "Memory Foam Pillow",                   "category": "Home",        "price": 799,  "rating": 4.3, "icon": "🛏️" },
+  { "id": "p12", "name": "Non-Stick Cookware Set",                "category": "Home",        "price": 3499, "rating": 4.6, "icon": "🍳" },
+  { "id": "p13", "name": "Vitamin C Face Serum",                 "category": "Beauty",      "price": 649,  "rating": 4.5, "icon": "🧴" },
+  { "id": "p14", "name": "Matte Lipstick Trio",                  "category": "Beauty",      "price": 799,  "rating": 4.2, "icon": "💄" },
+  { "id": "p15", "name": "Herbal Hair Growth Oil",                "category": "Beauty",      "price": 449,  "rating": 4.0, "icon": "🌿" },
+  { "id": "p16", "name": "Yoga Mat with Carry Strap",             "category": "Sports",      "price": 999,  "rating": 4.3, "icon": "🧘" },
+  { "id": "p17", "name": "Adjustable Dumbbell Set",               "category": "Sports",      "price": 5999, "rating": 4.7, "icon": "🏋️" },
+  { "id": "p18", "name": "Insulated Water Bottle",                "category": "Sports",      "price": 599,  "rating": 4.4, "icon": "🚰" }
+]

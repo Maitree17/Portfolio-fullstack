@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --rose:#f9a8c9;--rose-dark:#d4537e;--rose-light:#fbeaf0;
+  --peach:#f5c4b3;--peach-dark:#D85A30;
+  --lavender:#EEEDFE;--lav-dark:#534AB7;
+  --mint:#E1F5EE;--mint-dark:#0F6E56;
+  --cream:#fffaf7;--text:#2d1b2e;--muted:#8b6a80;
+  --card:#fff;--border:#f4d0e4;
+}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text);overflow-x:hidden}
+nav{background:rgba(255,250,247,0.92);backdrop-filter:blur(12px);position:sticky;top:0;z-index:100;border-bottom:1px solid var(--border);padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center}
+.nav-name{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--rose-dark)}
+.nav-links{display:flex;gap:1.5rem}
+.nav-links a{text-decoration:none;color:var(--muted);font-size:0.85rem;font-weight:500;letter-spacing:0.04em;transition:color 0.2s}
+.nav-links a:hover{color:var(--rose-dark)}
+
+/* HERO */
+.hero{min-height:90vh;display:flex;align-items:center;justify-content:center;padding:4rem 2rem;position:relative;overflow:hidden;text-align:center}
+.blob1{position:absolute;width:500px;height:500px;border-radius:50% 60% 40% 70%;background:radial-gradient(circle,#fbeaf0,#fde8f2);top:-100px;right:-100px;z-index:0;animation:float1 8s ease-in-out infinite}
+.blob2{position:absolute;width:400px;height:400px;border-radius:70% 40% 60% 50%;background:radial-gradient(circle,#EEEDFE,#e8e6fd);bottom:-80px;left:-80px;z-index:0;animation:float2 10s ease-in-out infinite}
+@keyframes float1{0%,100%{transform:translate(0,0) rotate(0deg)}50%{transform:translate(-20px,20px) rotate(5deg)}}
+@keyframes float2{0%,100%{transform:translate(0,0) rotate(0deg)}50%{transform:translate(20px,-15px) rotate(-5deg)}}
+.hero-content{position:relative;z-index:1}
+.hero-tag{display:inline-block;background:#fbeaf0;color:var(--rose-dark);font-size:0.78rem;font-weight:500;letter-spacing:0.08em;padding:0.35rem 1rem;border-radius:50px;border:1px solid var(--border);margin-bottom:1.5rem}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.8rem,6vw,5rem);font-weight:600;line-height:1.1;margin-bottom:0.8rem;color:var(--text)}
+.hero h1 em{color:var(--rose-dark);font-style:italic}
+.hero-sub{font-size:1rem;color:var(--muted);max-width:480px;margin:0 auto 2rem;line-height:1.8;font-weight:300}
+.hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.btn-primary{background:var(--rose-dark);color:#fff;padding:0.75rem 2rem;border-radius:50px;text-decoration:none;font-size:0.9rem;font-weight:500;border:none;cursor:pointer;transition:transform 0.2s,box-shadow 0.2s;box-shadow:0 4px 20px rgba(212,83,126,0.35)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(212,83,126,0.45)}
+.btn-secondary{background:transparent;color:var(--rose-dark);padding:0.75rem 2rem;border-radius:50px;text-decoration:none;font-size:0.9rem;font-weight:500;border:1.5px solid var(--rose-dark);cursor:pointer;transition:all 0.2s}
+.btn-secondary:hover{background:var(--rose-light)}
+
+/* SECTIONS */
+section{padding:5rem 2rem;max-width:900px;margin:0 auto}
+.sec-label{font-size:0.72rem;letter-spacing:0.14em;color:var(--rose-dark);font-weight:500;text-transform:uppercase;margin-bottom:0.5rem}
+.sec-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3vw,2.5rem);margin-bottom:2.5rem;color:var(--text)}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:center}
+.about-text p{color:var(--muted);line-height:1.9;font-weight:300;margin-bottom:1rem}
+.about-pills{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:1rem}
+.pill{background:var(--lavender);color:var(--lav-dark);font-size:0.78rem;font-weight:500;padding:0.3rem 0.9rem;border-radius:50px;border:1px solid #CECBF6}
+.pill.mint{background:var(--mint);color:var(--mint-dark);border-color:#9FE1CB}
+.pill.peach{background:#FAECE7;color:var(--peach-dark);border-color:#F5C4B3}
+.stat-box{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:2rem;display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.stat-item{text-align:center}
+.stat-num{font-family:'Playfair Display',serif;font-size:2.2rem;color:var(--rose-dark);font-weight:600}
+.stat-label{font-size:0.78rem;color:var(--muted);margin-top:0.25rem}
+
+/* EXPERIENCE */
+.exp-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:2rem;margin-bottom:1.5rem;position:relative;overflow:hidden}
+.exp-card::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;background:linear-gradient(to bottom,var(--rose),var(--lavender))}
+.exp-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;flex-wrap:wrap;gap:0.5rem}
+.exp-role{font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--text)}
+.exp-org{font-size:0.85rem;color:var(--rose-dark);font-weight:500;margin-top:0.2rem}
+.exp-date{font-size:0.78rem;background:var(--rose-light);color:var(--rose-dark);padding:0.3rem 0.8rem;border-radius:50px;border:1px solid var(--border);white-space:nowrap}
+.exp-list{list-style:none;display:flex;flex-direction:column;gap:0.6rem}
+.exp-list li{font-size:0.9rem;color:var(--muted);line-height:1.7;padding-left:1.2rem;position:relative}
+.exp-list li::before{content:'✦';position:absolute;left:0;color:var(--rose);font-size:0.7rem;top:0.2rem}
+
+/* PROJECTS */
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem}
+.proj-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:1.75rem;transition:transform 0.25s,box-shadow 0.25s;cursor:default}
+.proj-card:hover{transform:translateY(-5px);box-shadow:0 16px 40px rgba(212,83,126,0.12)}
+.proj-icon{width:44px;height:44px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:1rem}
+.proj-icon.pink{background:#fbeaf0}
+.proj-icon.lav{background:#EEEDFE}
+.proj-icon.mint{background:#E1F5EE}
+.proj-name{font-family:'Playfair Display',serif;font-size:1.05rem;margin-bottom:0.4rem}
+.proj-desc{font-size:0.85rem;color:var(--muted);line-height:1.7;margin-bottom:1rem}
+.proj-tags{display:flex;flex-wrap:wrap;gap:0.4rem}
+.tag{font-size:0.72rem;font-weight:500;padding:0.25rem 0.7rem;border-radius:50px}
+.tag.py{background:#FAECE7;color:#993C1D;border:1px solid #F5C4B3}
+.tag.js{background:#EEEDFE;color:#534AB7;border:1px solid #CECBF6}
+.tag.ml{background:#E1F5EE;color:#0F6E56;border:1px solid #9FE1CB}
+.proj-link{display:inline-block;margin-top:1rem;font-size:0.82rem;font-weight:500;color:var(--rose-dark);text-decoration:none}
+.proj-link:hover{text-decoration:underline}
+
+/* SKILLS */
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem}
+.skill-group{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.25rem}
+.skill-group h4{font-size:0.78rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--rose-dark);margin-bottom:0.75rem}
+.skill-items{display:flex;flex-wrap:wrap;gap:0.4rem}
+.skill-chip{font-size:0.78rem;background:var(--cream);color:var(--muted);border:1px solid var(--border);padding:0.25rem 0.65rem;border-radius:50px}
+
+/* HACKATHONS */
+.hack-card{background:linear-gradient(135deg,#fbeaf0 0%,#EEEDFE 100%);border:1px solid var(--border);border-radius:20px;padding:2rem;margin-bottom:1rem}
+.hack-badge{display:inline-block;background:var(--rose-dark);color:#fff;font-size:0.72rem;font-weight:500;padding:0.3rem 0.9rem;border-radius:50px;margin-bottom:0.75rem}
+.hack-name{font-family:'Playfair Display',serif;font-size:1.1rem;margin-bottom:0.3rem}
+.hack-meta{font-size:0.83rem;color:var(--muted)}
+
+/* CONTACT */
+.contact-section{background:linear-gradient(135deg,#fbeaf0 0%,#EEEDFE 50%,#E1F5EE 100%);border-radius:30px;padding:4rem 3rem;text-align:center;max-width:700px;margin:0 auto}
+.contact-section h2{font-family:'Playfair Display',serif;font-size:2rem;margin-bottom:0.75rem}
+.contact-section p{color:var(--muted);margin-bottom:2rem;line-height:1.8;font-weight:300}
+.contact-links{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.contact-link{background:#fff;color:var(--text);padding:0.65rem 1.5rem;border-radius:50px;text-decoration:none;font-size:0.88rem;font-weight:500;border:1px solid var(--border);transition:all 0.2s;display:flex;align-items:center;gap:0.5rem}
+.contact-link:hover{background:var(--rose-dark);color:#fff;border-color:var(--rose-dark)}
+
+footer{text-align:center;padding:2rem;font-size:0.8rem;color:var(--muted);border-top:1px solid var(--border)}
+.divider{height:1px;background:linear-gradient(to right,transparent,var(--border),transparent);margin:0 auto}
+
+@media(max-width:640px){
+  .about-grid{grid-template-columns:1fr}
+  .hero h1{font-size:2.5rem}
+  section{padding:3rem 1.25rem}
+  .contact-section{padding:3rem 1.5rem}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-name">Maitree Jain ✦</span>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#live-apps">Live Apps</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" style="padding:0;max-width:100%;min-height:90vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden">
+  <div class="blob1"></div>
+  <div class="blob2"></div>
+  <div class="hero-content" style="padding:2rem">
+    <div class="hero-tag">✦ Open to ML Engineer & SDE Internships</div>
+    <h1>Hi, I'm <em>Maitree</em> 🌸</h1>
+    <p class="hero-sub">B.Tech CSE student · AI/ML · Deep Learning · Cybersecurity · Full-Stack Dev · JUET Guna, 2027</p>
+    <div class="hero-btns">
+      <button class="btn-primary" onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})">View My Work</button>
+      <button class="btn-secondary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Let's Connect ✉️</button>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="sec-label">Who am I</div>
+  <div class="sec-title">A little about me 🌷</div>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>I'm a Computer Science undergrad passionate about building AI systems that actually matter — from detecting deepfakes to analyzing Android malware. I love the intersection of research and real-world impact.</p>
+      <p>When I'm not training models or debugging code, I'm exploring new ideas, contributing to hackathons, and constantly learning something new.</p>
+      <div class="about-pills">
+        <span class="pill">AI / ML 🤖</span>
+        <span class="pill">Deep Learning</span>
+        <span class="pill mint">Cybersecurity 🔐</span>
+        <span class="pill mint">Android Security</span>
+        <span class="pill peach">Full-Stack Dev</span>
+        <span class="pill peach">React · Node.js</span>
+      </div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-item">
+        <div class="stat-num">92%</div>
+        <div class="stat-label">Deepfake Detection Accuracy</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">500+</div>
+        <div class="stat-label">APKs Analyzed</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">87%</div>
+        <div class="stat-label">Obfuscation Classification</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">Top 10</div>
+        <div class="stat-label">National Hackathon 🏆</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="sec-label">Where I've worked</div>
+  <div class="sec-title">Experience 💼</div>
+  <div class="exp-card">
+    <div class="exp-header">
+      <div>
+        <div class="exp-role">Research Intern — Android Security</div>
+        <div class="exp-org">Maulana Azad National Institute of Technology (MANIT), Bhopal</div>
+      </div>
+      <span class="exp-date">Jun – Jul 2025</span>
+    </div>
+    <ul class="exp-list">
+      <li>Performed static analysis of 500+ APKs using Androguard to extract API calls and opcode frequency for obfuscation detection, improving detection coverage by ~30%.</li>
+      <li>Applied n-gram feature extraction and ML models to classify 4+ obfuscation techniques with 87% classification accuracy.</li>
+      <li>Generated call graphs and analyzed Smali bytecode to reverse-engineer app behavior, uncovering malicious logic in 12 previously undetected samples.</li>
+    </ul>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="sec-label">What I've built</div>
+  <div class="sec-title">Projects 🌟</div>
+  <div class="projects-grid">
+    <div class="proj-card">
+      <div class="proj-icon pink">🔍</div>
+      <div class="proj-name">Deepfake Detection System</div>
+      <div class="proj-desc">CNN-based model to classify real vs. AI-generated images/videos with 92% accuracy on a 10,000-sample test set. Reduced false positives by 18% through smart preprocessing pipelines.</div>
+      <div class="proj-tags">
+        <span class="tag py">Python</span>
+        <span class="tag ml">TensorFlow</span>
+        <span class="tag ml">Keras</span>
+        <span class="tag ml">OpenCV</span>
+      </div>
+    </div>
+    <div class="proj-card">
+      <div class="proj-icon lav">📊</div>
+      <div class="proj-name">BDA CRM Dashboard</div>
+      <div class="proj-desc">Full-stack CRM to manage leads, track interactions, and monitor sales pipeline with real-time data visualization, role-based access control, and dynamic charts.</div>
+      <div class="proj-tags">
+        <span class="tag js">React</span>
+        <span class="tag js">Node.js</span>
+        <span class="tag js">MongoDB</span>
+        <span class="tag js">Tailwind</span>
+      </div>
+    </div>
+    <div class="proj-card">
+      <div class="proj-icon mint">💳</div>
+      <div class="proj-name">Fraud Detection — Digital Payments</div>
+      <div class="proj-desc">ML pipeline to identify fraudulent transactions using feature engineering, SMOTE for class imbalance, and ensemble classifiers. High precision-recall balance for financial safety.</div>
+      <div class="proj-tags">
+        <span class="tag py">Python</span>
+        <span class="tag ml">Scikit-learn</span>
+        <span class="tag ml">Pandas</span>
+      </div>
+    </div>
+    <div class="proj-card">
+      <div class="proj-icon pink">🖼️</div>
+      <div class="proj-name">Data Hiding Using Image Steganography</div>
+      <div class="proj-desc">Implemented LSB (Least Significant Bit) steganography to securely embed secret text/data within digital images without perceptible visual change. Supports encode/decode pipeline with optional encryption layer for enhanced data confidentiality.</div>
+      <div class="proj-tags">
+        <span class="tag py">Python</span>
+        <span class="tag ml">OpenCV</span>
+        <span class="tag ml">NumPy</span>
+        <span class="tag js">Cybersecurity</span>
+      </div>
+    </div>
+    <div class="proj-card">
+      <div class="proj-icon mint">🌦️</div>
+      <div class="proj-name">Interactive Weather Quiz & Carousel</div>
+      <div class="proj-desc">A fully responsive mini web app combining an auto-rotating image carousel, a multi-question JS quiz with live scoring, and real-time city weather lookup via a public weather API. Built with custom media queries so layouts, typography, and spacing adapt smoothly across mobile, tablet, and desktop.</div>
+      <div class="proj-tags">
+        <span class="tag js">JavaScript</span>
+        <span class="tag js">CSS Media Queries</span>
+        <span class="tag ml">Weather API</span>
+        <span class="tag py">Responsive Design</span>
+      </div>
+    </div>
+    <div class="proj-card" id="live-apps">
+      <div class="proj-icon lav">✅</div>
+      <div class="proj-name">Notes & Tasks — Full-Stack To-Do App</div>
+      <div class="proj-desc">A to-do/notes app with a Node.js + Express backend that persists every task, edit, and completion to a JSON data store — not just the browser. Includes filtering, priorities, and due dates.</div>
+      <div class="proj-tags">
+        <span class="tag js">Node.js</span>
+        <span class="tag js">Express</span>
+        <span class="tag js">REST API</span>
+      </div>
+      <a class="proj-link" href="/todo-app/" target="_blank">Launch App →</a>
+    </div>
+    <div class="proj-card">
+      <div class="proj-icon mint">🛍️</div>
+      <div class="proj-name">Product Listing — Filter & Sort</div>
+      <div class="proj-desc">An Express-powered product catalog where category, price-range filters, and sort order (price, rating, name) are all resolved server-side via query params, not hardcoded on the client.</div>
+      <div class="proj-tags">
+        <span class="tag js">Node.js</span>
+        <span class="tag js">Express</span>
+        <span class="tag py">Query Filtering</span>
+      </div>
+      <a class="proj-link" href="/product-listing/" target="_blank">Launch App →</a>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="sec-label">What I know</div>
+  <div class="sec-title">Technical Skills 🛠️</div>
+  <div class="skills-grid">
+    <div class="skill-group">
+      <h4>Languages</h4>
+      <div class="skill-items">
+        <span class="skill-chip">Python</span><span class="skill-chip">Java</span><span class="skill-chip">JavaScript</span><span class="skill-chip">SQL</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h4>AI / ML</h4>
+      <div class="skill-items">
+        <span class="skill-chip">Deep Learning</span><span class="skill-chip">CNN</span><span class="skill-chip">NLP</span><span class="skill-chip">TensorFlow</span><span class="skill-chip">PyTorch</span><span class="skill-chip">Scikit-learn</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h4>Libraries</h4>
+      <div class="skill-items">
+        <span class="skill-chip">OpenCV</span><span class="skill-chip">NumPy</span><span class="skill-chip">Pandas</span><span class="skill-chip">Matplotlib</span><span class="skill-chip">Hugging Face</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h4>Android Security</h4>
+      <div class="skill-items">
+        <span class="skill-chip">Androguard</span><span class="skill-chip">APKTool</span><span class="skill-chip">Smali Bytecode</span><span class="skill-chip">Static Analysis</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h4>Web / Stack</h4>
+      <div class="skill-items">
+        <span class="skill-chip">React</span><span class="skill-chip">Node.js</span><span class="skill-chip">Express</span><span class="skill-chip">MongoDB</span><span class="skill-chip">Docker</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <h4>Tools / OS</h4>
+      <div class="skill-items">
+        <span class="skill-chip">Linux/Bash</span><span class="skill-chip">Git</span><span class="skill-chip">Jupyter</span><span class="skill-chip">VS Code</span><span class="skill-chip">Google Colab</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- HACKATHONS -->
+<section>
+  <div class="sec-label">Competitions</div>
+  <div class="sec-title">Hackathons 🏅</div>
+  <div class="hack-card">
+    <span class="hack-badge">🏆 Top 10 Runner-Up</span>
+    <div class="hack-name">CodeSrijan National Hackathon 2026</div>
+    <div class="hack-meta">72-Hour · JUET Guna, MP · Apr 16–18, 2026 · National level</div>
+  </div>
+  <div class="hack-card" style="background:linear-gradient(135deg,#E1F5EE 0%,#fbeaf0 100%)">
+    <span class="hack-badge" style="background:#0F6E56">✦ Participant</span>
+    <div class="hack-name">Hacktron — 12-Hour Offline Hackathon</div>
+    <div class="hack-meta">Team: Techno · JUET Guna · Apr 27, 2025</div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-section">
+    <h2>Let's build something together 🌸</h2>
+    <p>I'm actively looking for ML Engineer / SDE internship opportunities.<br>Feel free to reach out — I'd love to connect!</p>
+    <div class="contact-links">
+      <a class="contact-link" href="mailto:maitreejain1726@gmail.com">✉️ Email Me</a>
+      <a class="contact-link" href="https://linkedin.com" target="_blank">🔗 LinkedIn</a>
+      <a class="contact-link" href="https://github.com" target="_blank">🐱 GitHub</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Made with 💖 · Maitree Jain · B.Tech CSE, JUET Guna · Expected 2027
+</footer>
+
+</body>
+</html>
