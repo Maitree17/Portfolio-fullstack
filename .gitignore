@@ -1,2 +1,2 @@
-todo-app product-listing index.html
- node_modules/ *.log
+node_modules/
+*.log

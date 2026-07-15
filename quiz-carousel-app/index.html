@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interactive Weather Quiz &amp; Carousel — Maitree Jain</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a class="back-link" href="/" style="display:inline-block;padding:1rem 1.5rem;color:#d4537e;text-decoration:none;font-size:0.88rem;font-weight:500;">← Back to Portfolio</a>
+
+<header class="page-head">
+  <div class="brand">✦ Advanced Styling &amp; JavaScript</div>
+  <h1>Interactive Weather Quiz &amp; Carousel</h1>
+  <p class="subtitle">Image carousel, JS quiz with live scoring, and real-time weather &amp; joke APIs — fully responsive.</p>
+</header>
+
+<!-- ===== CAROUSEL ===== -->
+<div class="block">
+  <div class="sec-label">Part 1</div>
+  <h2>Image Carousel 🎠</h2>
+  <p class="sec-desc">Auto-rotating slides with manual arrow and dot controls. Swipe through or let it play.</p>
+
+  <div class="carousel">
+    <div class="carousel-track" id="carouselTrack">
+      <div class="slide" style="background:linear-gradient(135deg,#fbeaf0 0%,#EEEDFE 100%);display:flex;align-items:center;justify-content:center;font-size:2.5rem;">🌸 Slide 1</div>
+      <div class="slide" style="background:linear-gradient(135deg,#EEEDFE 0%,#E1F5EE 100%);display:flex;align-items:center;justify-content:center;font-size:2.5rem;">🌿 Slide 2</div>
+      <div class="slide" style="background:linear-gradient(135deg,#E1F5EE 0%,#FAECE7 100%);display:flex;align-items:center;justify-content:center;font-size:2.5rem;">🍑 Slide 3</div>
+      <div class="slide" style="background:linear-gradient(135deg,#FAECE7 0%,#fbeaf0 100%);display:flex;align-items:center;justify-content:center;font-size:2.5rem;">✨ Slide 4</div>
+    </div>
+    <button class="car-btn prev" id="prevBtn">‹</button>
+    <button class="car-btn next" id="nextBtn">›</button>
+    <div class="dots" id="dots"></div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ===== QUIZ ===== -->
+<div class="block">
+  <div class="sec-label">Part 2</div>
+  <h2>Interactive Quiz 🧠</h2>
+  <p class="sec-desc">Test your web dev knowledge — 5 questions with instant feedback and live scoring.</p>
+
+  <div class="quiz-card" id="quizCard">
+    <div class="quiz-progress"><span id="qNum">Question 1</span> of <span id="qTotal">5</span></div>
+    <h3 id="questionText"></h3>
+    <div class="options" id="optionsBox"></div>
+    <div class="quiz-footer">
+      <span class="score" id="scoreDisplay">Score: 0</span>
+      <button class="btn-primary" id="nextQBtn" disabled>Next →</button>
+    </div>
+  </div>
+
+  <div class="quiz-result" id="quizResult" hidden>
+    <h3>Quiz Complete! 🎉</h3>
+    <p id="finalScoreText"></p>
+    <button class="btn-primary" id="restartQuiz">Restart Quiz</button>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ===== API SECTION ===== -->
+<div class="block">
+  <div class="sec-label">Part 3</div>
+  <h2>Live API Integration 🌐</h2>
+  <p class="sec-desc">Real-time data fetched from public APIs — no API keys required.</p>
+
+  <div class="api-grid">
+    <!-- Weather Card -->
+    <div class="api-card">
+      <h4>🌦️ City Weather Lookup</h4>
+      <form class="weather-form" id="weatherForm">
+        <input type="text" id="cityInput" placeholder="Enter a city name…" required>
+        <button type="submit" class="btn-primary small">Search</button>
+      </form>
+      <div class="weather-result" id="weatherResult">
+        <p class="hint">Enter a city above to see current weather.</p>
+      </div>
+    </div>
+
+    <!-- Joke Card -->
+    <div class="api-card">
+      <h4>😂 Random Dad Joke</h4>
+      <div class="joke-result" id="jokeResult">
+        <p class="hint">Loading a joke…</p>
+      </div>
+      <button class="btn-secondary small" id="jokeBtn">Get Another Joke</button>
+    </div>
+  </div>
+</div>
+
+<footer>
+  Made with 💖 · Maitree Jain · HTML, CSS (Media Queries), Vanilla JS, Public APIs
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
